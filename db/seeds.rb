@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+Message.destroy_all
+User.destroy_all
+Channel.destroy_all
+
+general = Channel.create(name: 'general')
+paris = Channel.create(name: 'paris')
+react = Channel.create(name: 'react')
+
+
+kevin = User.create(email: 'kevin@chat.com', password: '1234')
+ed = User.create(email: 'ed@chat.com', password: '1234')
+seb = User.create(email: 'seb@chat.com', password: '1234')
+
+Channel.find_each do |chan|
+  10.times do
+    user = User.all.sample
+    Message.create(channel: chan, user: user, content: Faker::Simpsons.quote)
+  end
+end
+
+
