@@ -21,7 +21,7 @@ class ChannelList extends Component {
         className={channel === this.props.selectedChannel ? 'active' : null}
         role="presentation"
       >
-        <Link to={`/channels/${channel}/messages`}>
+        <Link to={`/channels/${channel}`}>
           #{channel}
         </Link>
       </li>

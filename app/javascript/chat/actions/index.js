@@ -14,15 +14,19 @@ export function fetchMessages(channel) {
   };
 }
 
-export function createMessage(channel, author, content) {
+export function createMessage(channel, content) {
   const url = `${BASE_URL}/channels/${channel}/messages`;
-  const body = { author, content }; // ES6 destructuring
+  const body = { content }; // ES6 destructuring
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+
   const promise = fetch(url, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
     },
+    credentials: 'same-origin',
     body: JSON.stringify(body)
   }).then(r => r.json());
 

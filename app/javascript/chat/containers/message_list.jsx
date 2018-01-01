@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import { fetchMessages } from '../actions';
 import Message from '../components/message';
@@ -40,7 +41,7 @@ class MessageList extends Component {
             })
           }
         </div>
-        <MessageForm />
+        <Route exact component={MessageForm} />
       </div>
     );
   }
