@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { selectChannel, fetchMessages } from '../actions/index';
 
 class ChannelList extends Component {
@@ -12,19 +13,17 @@ class ChannelList extends Component {
     }
   }
 
-  handleClick = (channel) => {
-    this.props.selectChannel(channel);
-  }
 
   renderChannel = (channel) => {
     return (
       <li
         key={channel}
         className={channel === this.props.selectedChannel ? 'active' : null}
-        onClick={() => this.handleClick(channel)}
         role="presentation"
       >
-        #{channel}
+        <Link to={`/channels/${channel}/messages`}>
+          #{channel}
+        </Link>
       </li>
     );
   }

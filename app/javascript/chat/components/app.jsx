@@ -7,10 +7,10 @@ class App extends Component {
     return (
       <div className="messaging-wrapper">
         <div className="logo-container">
-          <img className="messaging-logo" src="assets/images/logo.png" alt="logo" />
+          <img className="messaging-logo" src="assets/logo.png" alt="logo" />
         </div>
-        <ChannelList selectChannel={this.props.match.params.channel} />
-        <MessageList selectChannel={this.props.match.params.channel} />
+        <ChannelList selectedChannel={this.props.match.params.channel} />
+        <MessageList selectedChannel={this.props.match.params.channel} />
       </div>
     );
   }
