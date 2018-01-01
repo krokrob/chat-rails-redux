@@ -13,7 +13,6 @@ class ChannelList extends Component {
     }
   }
 
-
   renderChannel = (channel) => {
     return (
       <li

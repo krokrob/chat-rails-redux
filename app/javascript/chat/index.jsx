@@ -15,7 +15,7 @@ const initialState = {
   messages: [],
   channels: JSON.parse(chatContainer.dataset.channels)
 };
-debugger
+
 const reducers = combineReducers({
   messages: messagesReducer,
   channels: (state = null, action) => state
